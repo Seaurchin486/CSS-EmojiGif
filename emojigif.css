@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/* 容器id */
+.move_container {
+  width: 230px;
+  height: 160px;
+  position: relative;
+}
+
+/* 横向运动 */
+@keyframes ellipseMoveX {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: calc(230px - 150px);
+  }
+}
+/* 纵向运动 */
+@keyframes ellipseMoveY {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(160px - 100px);
+  }
+}
+.ellipse {
+  width: 150px;
+  height: 100px;
+  background-color: #32c33a;
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+  animation: ellipseMoveX 500ms cubic-bezier(0.36, 0, 0.64, 1) calc(500ms / -2) infinite alternate, ellipseMoveY 500ms cubic-bezier(0.36, 0, 0.64, 1) infinite alternate;
+}
+
+/* 横向运动 */
+@keyframes teetertotterMoveX {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: calc(230px - 150px);
+  }
+  100% {
+    top: 0;
+  }
+}
+/* 纵向运动 */
+@keyframes teetertotterMoveY {
+  0% {
+    left: calc(calc(160px - 100px) / 2);
+  }
+  25% {
+    left: calc(160px - 100px);
+  }
+  50% {
+    left: calc(calc(160px - 100px) / 2);
+  }
+  75% {
+    left: 0;
+  }
+  100% {
+    left: calc(calc(160px - 100px) / 2);
+  }
+}
+/* 绑定运动动画的id move*/
+.teetertotter {
+  width: 150px;
+  height: 100px;
+  background-color: #32c33a;
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+  animation: teetertotterMoveX 500ms cubic-bezier(0.36, 0, 0.64, 1) infinite normal, teetertotterMoveY 500ms cubic-bezier(0.36, 0, 0.64, 1) infinite alternate;
+}
+
+/*# sourceMappingURL=emojigif.css.map */

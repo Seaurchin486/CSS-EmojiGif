@@ -1,0 +1,67 @@
+$width: 230px;
+$height: 160px;
+/* 容器id */
+.move_container {
+    width: $width;
+    height: $height;
+    position: relative;
+}
+
+$pWidth: 150px;
+$pHeight: 100px;
+$ms: 500ms;
+
+// 圆周/椭圆运动 
+/* 横向运动 */
+@keyframes ellipseMoveX{
+    0% {top: 0;}
+    100% {top: calc(#{$width} - #{$pWidth});}
+}
+/* 纵向运动 */
+@keyframes ellipseMoveY{
+    0% {left: 0;}
+    100% {left: calc(#{$height} - #{$pHeight});}
+}
+.ellipse {
+    width: $pWidth;
+    height: $pHeight;
+    background-color: #32c33a;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    animation: 
+        ellipseMoveX $ms cubic-bezier(0.36,0,0.64,1) calc(#{$ms} / -2) infinite alternate,
+        ellipseMoveY $ms cubic-bezier(0.36,0,0.64,1) infinite alternate;
+}
+
+
+// 上下往复式的鬼畜晃头
+/* 横向运动 */
+@keyframes teetertotterMoveX{
+    0% {top: 0;}
+    50% {top: calc(#{$width} - #{$pWidth});}
+    100% {top: 0;}
+}
+/* 纵向运动 */
+@keyframes teetertotterMoveY{
+    0% {left: calc(calc(#{$height} - #{$pHeight}) / 2);}
+    25% {left: calc(#{$height} - #{$pHeight});}
+    50% {left: calc(calc(#{$height} - #{$pHeight}) / 2);}
+    75% {left: 0;}
+    100% {left: calc(calc(#{$height} - #{$pHeight}) / 2);}
+}
+
+
+/* 绑定运动动画的id move*/ 
+.teetertotter {
+    width: $pWidth;
+    height: $pHeight;
+    background-color: #32c33a;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    animation: 
+        teetertotterMoveX $ms cubic-bezier(0.36,0,0.64,1) infinite normal,
+        teetertotterMoveY $ms cubic-bezier(0.36,0,0.64,1) infinite alternate;
+}
+
